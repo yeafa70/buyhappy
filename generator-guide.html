@@ -270,20 +270,8 @@
 <section id="contact" class="bg-secondary py-20 relative overflow-hidden">
   <div class="max-w-4xl mx-auto px-4 relative z-10">
     <div class="bg-white rounded-2xl shadow-2xl p-8 md:p-12">
-      <div class="text-center mb-10"><h2 class="text-3xl font-bold text-gray-900 mb-2">不確定要租幾瓦？直接把設備清單傳給我們</h2><p class="text-gray-600 mb-6">提供活動日期、地點、設備清單與使用時間，租必達協助你初步判斷發電機容量與現場注意事項。</p><div class="flex flex-col sm:flex-row justify-center gap-4 mb-8"><a href="tel:0920633116" class="bg-gray-900 text-white font-bold px-8 py-4 rounded-xl hover:bg-gray-800 transition shadow-lg text-lg flex items-center justify-center gap-4 w-full sm:w-auto" data-ga-event="click_phone" data-ga-label="generator_guide_contact_phone" onclick="gtag('event', 'click_to_call');"><span class="text-3xl text-accent">☎</span><div class="text-left leading-tight"><span class="block text-xs text-gray-300 font-normal">一通電話，快速評估</span>0920-633-116</div></a><a href="https://lin.ee/XM7224r" target="_blank" rel="noopener" class="bg-[#06C755] text-white font-bold px-8 py-4 rounded-xl hover:bg-green-600 transition shadow-lg text-lg flex items-center justify-center gap-4 w-full sm:w-auto" data-ga-event="click_line" data-ga-label="generator_guide_contact_line" onclick="gtag('event', 'click_line_chat');"><span class="text-3xl">LINE</span><div class="text-left leading-tight"><span class="block text-xs text-green-100 font-normal">點擊加入官方好友</span>LINE 諮詢</div></a></div></div>
-      <form id="rentalForm" class="space-y-6" onsubmit="gtag('event', 'submit_quote_form');"><div class="grid grid-cols-1 md:grid-cols-2 gap-6"><div><label class="block text-sm font-medium text-gray-700 mb-1">聯絡人姓名 *</label><input type="text" id="entryName" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-secondary focus:border-secondary"></div><div><label class="block text-sm font-medium text-gray-700 mb-1">聯絡電話 *</label><input type="tel" id="entryPhone" name="phone" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-secondary focus:border-secondary"></div></div><div class="grid grid-cols-1 md:grid-cols-2 gap-6"><div><label class="block text-sm font-medium text-gray-700 mb-1">主要需求設備</label><select id="entryService" name="service" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-secondary focus:border-secondary">
-  <option value="發電機">發電機</option>
-  <option value="水冷扇">水冷扇</option>
-  <option value="活動帳篷">活動帳篷</option>
-  <option value="水冷扇+發電機">水冷扇 + 發電機</option>
-  <option value="水冷扇+活動帳篷">水冷扇 + 活動帳篷</option>
-  <option value="活動帳篷+發電機">活動帳篷 + 發電機</option>
-  <option value="三項設備綜合規劃">三項設備綜合規劃</option>
-</select></div><div><label class="block text-sm font-medium text-gray-700 mb-1">預計活動日期</label><input type="date" id="entryDate" name="date" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-secondary focus:border-secondary"></div></div><div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-  <div><label class="block text-sm font-medium text-gray-700 mb-1">活動類型</label><select id="guideEventType" data-form-extra="活動類型" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-secondary focus:border-secondary"><option value="">請選擇</option><option>市集/攤商活動</option><option>園遊會/校園活動</option><option>戶外音響/舞台活動</option><option>工程臨時用電</option><option>停電備援</option><option>其他活動</option></select></div>
-  <div><label class="block text-sm font-medium text-gray-700 mb-1">發電機偏好</label><select id="guideGeneratorType" data-form-extra="發電機偏好" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-secondary focus:border-secondary"><option value="">請選擇</option><option>一般款</option><option>靜音款</option><option>不確定，請協助建議</option></select></div>
-  <div><label class="block text-sm font-medium text-gray-700 mb-1">用電狀況</label><select id="guidePowerNeed" data-form-extra="用電狀況" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-secondary focus:border-secondary"><option value="">請選擇</option><option>只有基本照明</option><option>照明+音響</option><option>攤商設備/冷藏設備</option><option>水冷扇一起使用</option><option>設備較多，需要協助估算</option></select></div>
-</div><div><label class="block text-sm font-medium text-gray-700 mb-1">活動地點與需求備註</label><textarea id="entryMsg" name="message" rows="4" placeholder="請告訴我們活動縣市、設備清單、數量、使用時間與是否有冰箱/馬達/音響..." class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-secondary focus:border-secondary"></textarea></div><button type="submit" id="submitBtn" class="w-full bg-primary text-white font-bold py-3 rounded-md hover:bg-blue-900 transition flex justify-center items-center gap-2"><span>送出詢價單</span></button></form>
+      <div class="text-center mb-10"><h2 class="text-3xl font-bold text-gray-900 mb-2">快速聯絡我們</h2><p class="text-gray-600 mb-6">若活動日期較近，建議直接來電或加入 LINE，提供日期、地點、設備需求與現場照片，評估會更快速。</p><div class="flex flex-col sm:flex-row justify-center gap-4 mb-8"><a href="tel:0920633116" class="bg-gray-900 text-white font-bold px-8 py-4 rounded-xl hover:bg-gray-800 transition shadow-lg text-lg flex items-center justify-center gap-4 w-full sm:w-auto" data-ga-event="click_phone" data-ga-label="generator_guide_contact_phone" onclick="gtag('event', 'click_to_call');"><span class="text-3xl text-accent">☎</span><div class="text-left leading-tight"><span class="block text-xs text-gray-300 font-normal">一通電話，快速評估</span>0920-633-116</div></a><a href="https://lin.ee/XM7224r" target="_blank" rel="noopener" class="bg-[#06C755] text-white font-bold px-8 py-4 rounded-xl hover:bg-green-600 transition shadow-lg text-lg flex items-center justify-center gap-4 w-full sm:w-auto" data-ga-event="click_line" data-ga-label="generator_guide_contact_line" onclick="gtag('event', 'click_line_chat');"><span class="text-3xl">LINE</span><div class="text-left leading-tight"><span class="block text-xs text-green-100 font-normal">點擊加入官方好友</span>LINE 諮詢</div></a></div></div>
+
     </div>
   </div>
 </section>
@@ -306,8 +294,6 @@
 </script>
 </body>
 </html>
-
-
 
 
 
