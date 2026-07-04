@@ -229,6 +229,7 @@ function submitRentalForm(event) {
     page_title: document.title
   };
 
+  trackEvent('submit_quote_form', leadEventParams);
   trackEvent('form_submit_attempt', leadEventParams);
 
   var payload = {
