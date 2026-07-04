@@ -32,8 +32,8 @@
 <body class="bg-gray-50 text-gray-800 font-sans antialiased flex flex-col min-h-screen scroll-smooth">
   <div class="bg-gray-900 text-white text-sm py-2">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap justify-between items-center gap-2">
-      <a href="tel:0920633116" class="font-bold hover:text-accent transition" data-ga-event="click_phone" data-ga-label="catalog_top_phone">服務專線：0920-633-116</a>
-      <a href="https://lin.ee/XM7224r" target="_blank" rel="noopener" class="text-[#06C755] font-bold hover:text-green-300 transition" data-ga-event="click_line" data-ga-label="catalog_top_line">LINE 線上諮詢</a>
+      <a href="tel:0920633116" class="font-bold hover:text-accent transition" data-ga-event="click_phone" data-ga-label="catalog_top_phone" onclick="gtag('event', 'click_to_call');">服務專線：0920-633-116</a>
+      <a href="https://lin.ee/XM7224r" target="_blank" rel="noopener" class="text-[#06C755] font-bold hover:text-green-300 transition" data-ga-event="click_line" data-ga-label="catalog_top_line" onclick="gtag('event', 'click_line_chat');">LINE 線上諮詢</a>
     </div>
   </div>
 
@@ -139,22 +139,24 @@
               </div>
             </section>
 
-            <section>
+            <section id="generator">
               <div class="flex items-end justify-between gap-4 mb-5"><div><p class="text-sm font-bold text-primary">GENERATOR</p><h3 class="text-2xl font-black text-gray-900">發電機出租</h3></div><a href="generator.html" class="text-secondary font-bold hover:text-primary">看發電機介紹 →</a></div>
               <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <article class="catalog-card bg-gray-50 rounded-2xl overflow-hidden border border-gray-100 shadow-sm" data-product-card>
                   <img src="pics/generator-main.jpg" alt="一般款發電機出租，活動供電與臨時用電" class="w-full aspect-square object-cover product-img">
-                  <div class="p-5"><h4 class="font-black text-xl text-gray-900">一般款發電機</h4><p class="text-sm text-gray-600 mt-2">適合戶外照明、攤商設備、臨時工程與活動基本供電需求。</p>
-                    <div class="mt-4 grid grid-cols-2 gap-3"><div><label class="block text-sm font-bold text-gray-700 mb-1">規格</label><select data-cart-spec class="spec-select w-full border rounded-lg px-3 py-2"><option value="一般款發電機">一般款</option><option value="一般款發電機＋用電評估">一般款＋用電評估</option></select></div><div><label class="block text-sm font-bold text-gray-700 mb-1">數量</label><input data-cart-qty type="number" min="1" value="1" class="w-full border rounded-lg px-3 py-2"></div></div>
-                    <input type="hidden" data-cart-name value="一般款發電機"><input type="hidden" data-cart-category value="發電機">
+                  <div class="p-5"><h4 class="font-black text-xl text-gray-900">一般款汽油發電機</h4><p class="text-sm text-gray-600 mt-2">適合戶外市集、臨時工程、攤商照明、工具用電與較開闊場地的活動供電。</p>
+                    <ul class="mt-3 text-xs text-gray-600 space-y-1 bg-white rounded-xl p-3"><li>• 適合一般活動與工程臨時用電</li><li>• 建議提供設備瓦數與使用時間</li><li>• 須放置於戶外通風處運轉</li></ul>
+                    <div class="mt-4 grid grid-cols-2 gap-3"><div><label class="block text-sm font-bold text-gray-700 mb-1">規格</label><select data-cart-spec class="spec-select w-full border rounded-lg px-3 py-2"><option value="一般款汽油發電機">一般款</option><option value="一般款汽油發電機＋用電評估">一般款＋用電評估</option></select></div><div><label class="block text-sm font-bold text-gray-700 mb-1">數量</label><input data-cart-qty type="number" min="1" value="1" class="w-full border rounded-lg px-3 py-2"></div></div>
+                    <input type="hidden" data-cart-name value="一般款汽油發電機"><input type="hidden" data-cart-category value="發電機">
                     <button type="button" data-add-cart class="mt-4 w-full bg-primary text-white font-bold py-3 rounded-xl hover:bg-secondary transition">加入詢價車</button>
                   </div>
                 </article>
                 <article class="catalog-card bg-gray-50 rounded-2xl overflow-hidden border border-gray-100 shadow-sm" data-product-card>
                   <img src="pics/portable-generator-main.jpg" alt="靜音款發電機出租，適合攤位與活動現場" class="w-full aspect-square object-cover product-img">
-                  <div class="p-5"><h4 class="font-black text-xl text-gray-900">靜音款發電機</h4><p class="text-sm text-gray-600 mt-2">適合對噪音較敏感的攤位、報到處、戶外小型活動與備援用電。</p>
-                    <div class="mt-4 grid grid-cols-2 gap-3"><div><label class="block text-sm font-bold text-gray-700 mb-1">規格</label><select data-cart-spec class="spec-select w-full border rounded-lg px-3 py-2"><option value="靜音款發電機">靜音款</option><option value="靜音款發電機＋用電評估">靜音款＋用電評估</option></select></div><div><label class="block text-sm font-bold text-gray-700 mb-1">數量</label><input data-cart-qty type="number" min="1" value="1" class="w-full border rounded-lg px-3 py-2"></div></div>
-                    <input type="hidden" data-cart-name value="靜音款發電機"><input type="hidden" data-cart-category value="發電機">
+                  <div class="p-5"><h4 class="font-black text-xl text-gray-900">靜音款汽油發電機</h4><p class="text-sm text-gray-600 mt-2">適合社區活動、講座、婚禮、服務台、攤位附近與較重視音量的備援用電。</p>
+                    <ul class="mt-3 text-xs text-gray-600 space-y-1 bg-white rounded-xl p-3"><li>• 適合噪音敏感場域優先詢問</li><li>• 可搭配活動帳篷與水冷扇一起規劃</li><li>• 仍需保持戶外通風與安全距離</li></ul>
+                    <div class="mt-4 grid grid-cols-2 gap-3"><div><label class="block text-sm font-bold text-gray-700 mb-1">規格</label><select data-cart-spec class="spec-select w-full border rounded-lg px-3 py-2"><option value="靜音款汽油發電機">靜音款</option><option value="靜音款汽油發電機＋用電評估">靜音款＋用電評估</option></select></div><div><label class="block text-sm font-bold text-gray-700 mb-1">數量</label><input data-cart-qty type="number" min="1" value="1" class="w-full border rounded-lg px-3 py-2"></div></div>
+                    <input type="hidden" data-cart-name value="靜音款汽油發電機"><input type="hidden" data-cart-category value="發電機">
                     <button type="button" data-add-cart class="mt-4 w-full bg-primary text-white font-bold py-3 rounded-xl hover:bg-secondary transition">加入詢價車</button>
                   </div>
                 </article>
@@ -176,7 +178,7 @@
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-10">
           <div class="text-center mb-8"><p class="text-sm font-bold text-primary mb-2">SEND INQUIRY</p><h2 class="text-3xl font-black text-gray-900 mb-3">填寫活動資料，送出設備詢價</h2><p class="text-gray-600">送出後，租必達會收到整理好的設備清單與活動資訊，方便快速回覆。</p></div>
-          <form id="rentalForm" class="space-y-6">
+          <form id="rentalForm" class="space-y-6" onsubmit="gtag('event', 'submit_quote_form');">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div><label class="block text-sm font-bold text-gray-700 mb-1">姓名 / 單位 *</label><input type="text" id="entryName" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-secondary focus:border-secondary"></div>
               <div><label class="block text-sm font-bold text-gray-700 mb-1">聯絡電話 *</label><input type="tel" id="entryPhone" name="phone" required class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-secondary focus:border-secondary"></div>
@@ -202,9 +204,20 @@
     </section>
   </main>
 
-  <footer class="bg-gray-900 text-gray-300 py-10"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between gap-6"><div><div class="flex items-center gap-3 text-2xl font-bold text-white mb-3"><span class="w-10 h-10 rounded-xl bg-secondary text-white grid place-items-center">租</span>租必達</div><p class="text-sm text-gray-400">水冷扇、活動帳篷、發電機租賃，協助活動設備快速規劃。</p></div><div class="space-y-2 text-sm"><a href="tel:0920633116" class="block text-white font-bold">0920-633-116</a><a href="https://lin.ee/XM7224r" target="_blank" rel="noopener" class="block text-[#06C755] font-bold">LINE 線上諮詢</a><a href="index.html" class="block hover:text-white">回首頁</a></div></div></footer>
+  <footer class="bg-gray-900 text-gray-300 py-10"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between gap-6"><div><div class="flex items-center gap-3 text-2xl font-bold text-white mb-3"><span class="w-10 h-10 rounded-xl bg-secondary text-white grid place-items-center">租</span>租必達</div><p class="text-sm text-gray-400">水冷扇、活動帳篷、發電機租賃，協助活動設備快速規劃。</p></div><div class="space-y-2 text-sm"><a href="tel:0920633116" class="block text-white font-bold" onclick="gtag('event', 'click_to_call');">0920-633-116</a><a href="https://lin.ee/XM7224r" target="_blank" rel="noopener" class="block text-[#06C755] font-bold" onclick="gtag('event', 'click_line_chat');">LINE 線上諮詢</a><a href="index.html" class="block hover:text-white">回首頁</a></div></div></footer>
 
   <script src="js/main.js?v=202607-rental-cart"></script>
+<script
+  src="https://yeafa70.github.io/ZUBIDA/js/embed.js?v=202607-avatar-log-live"
+  data-widget="https://yeafa70.github.io/ZUBIDA/js/widget.html?v=202607-avatar-log-live"
+  data-knowledge="https://yeafa70.github.io/ZUBIDA/js/knowledge.js?v=202607-avatar-log-live"
+  data-width="320"
+  data-height="400"
+  data-bottom="16"
+  data-open="false"
+  data-log-api="https://script.google.com/macros/s/AKfycbw6sS6qFtJUgIzg0rs3vuSBv7eb8LHnoEKOOwVMtHiJAbDnq35sAMLaweF5RnZgMqAg/exec"
+  data-text="您好！我是租必達 AI 設備租賃客服，可以用打字或語音詢問水冷扇、活動帳篷、發電機相關問題。">
+</script>
   <script src="js/rental-cart.js?v=202607-rental-cart"></script>
 </body>
 </html>
