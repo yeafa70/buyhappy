@@ -175,7 +175,7 @@
       '活動地點：' + getText('entryLocation', '未填'),
       '使用場景：' + getText('entryScene', '未填'),
       '配送需求：' + getText('entryDelivery', '未填'),
-      '發票需求：' + getText('entryInvoice', '未填'),
+      '搭建需求：' + getText('entryInvoice', '未填'),
       '',
       '詢價設備：',
       getCartLines().join('\n'),

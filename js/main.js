@@ -104,7 +104,7 @@ function getPageName(pathname) {
   if (path.indexOf('cases') !== -1) return '活動案例';
   if (path.indexOf('generator') !== -1) return '發電機';
   if (path.indexOf('cooler') !== -1 || path.indexOf('water-cooler') !== -1) return '水冷扇';
-  if (path.indexOf('tent') !== -1 || path.indexOf('event-tent') !== -1) return '活動帳篷';
+  if (path.indexOf('tent') !== -1) return '活動帳篷';
   if (path.indexOf('404') !== -1) return '404頁面';
   if (path === '/' || path === '/ZUBIDA/' || path.indexOf('index') !== -1) return '首頁';
   return '官網頁面';
