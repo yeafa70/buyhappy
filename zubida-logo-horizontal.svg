@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 128" role="img" aria-labelledby="title desc">
+  <title id="title">租必達 ZUBIDA</title>
+  <desc id="desc">深藍色租必達橫式標誌，搭配橘色閃電與淺藍流線。</desc>
+  <defs>
+    <linearGradient id="wave" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#36A9E1"/>
+      <stop offset="1" stop-color="#0B6FB3"/>
+    </linearGradient>
+  </defs>
+  <g fill="#083C96">
+    <text x="12" y="91" font-family="Microsoft JhengHei, Noto Sans TC, PingFang TC, Arial Black, sans-serif" font-size="84" font-weight="900" letter-spacing="2">租必達</text>
+  </g>
+  <path d="M246 20 L204 70 H237 L218 112 L282 52 H247 Z" fill="#FF7A18"/>
+  <path d="M360 69 C405 48 449 49 505 66 C451 61 415 69 373 87 C413 75 459 76 512 90 C455 88 413 91 363 105" fill="none" stroke="url(#wave)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
