@@ -209,6 +209,21 @@ function submitRentalForm(event) {
   var service = getFieldValue('entryService');
   var date = getFieldValue('entryDate');
   var message = getFieldValue('entryMsg');
+
+  if (!name || !phone || !service) {
+    alert('請填寫姓名/單位、電話與主要需求設備，方便我們儘快與您聯繫。');
+    trackEvent('form_validation_error', {
+      event_category: 'lead',
+      error_type: 'missing_required_fields',
+      page_path: location.pathname,
+      page_title: document.title
+    });
+    if (btn) {
+      btn.disabled = false;
+      btn.innerHTML = old;
+    }
+    return false;
+  }
   var extraNotes = collectExtraFormNotes();
   if (extraNotes.length) {
     message = (message ? message + '\n\n' : '') + extraNotes.join('\n');
@@ -336,7 +351,27 @@ function submitRentalForm(event) {
   }
 
   iframe.onload = finishSubmit;
-  postForm.submit();
+
+  try {
+    postForm.submit();
+  } catch (err) {
+    finished = true;
+    trackEvent('form_submit_error', {
+      event_category: 'lead',
+      error_type: 'post_form_submit_failed',
+      error_message: err && err.message ? err.message : '',
+      page_path: location.pathname,
+      page_title: document.title
+    });
+    alert('表單送出時發生問題，請直接來電：0920-633-116，我們會儘快協助您。');
+    if (postForm.parentNode) postForm.parentNode.removeChild(postForm);
+    if (btn) {
+      btn.disabled = false;
+      btn.innerHTML = old;
+    }
+    return false;
+  }
+
   window.setTimeout(finishSubmit, 1800);
   return false;
 }
