@@ -3,6 +3,7 @@
 
   var storageKey = 'zubida_rental_inquiry_cart';
   var cart = loadCart();
+  var hasTrackedBeginCheckout = false;
 
   function getValue(selector, root) {
     var node = (root || document).querySelector(selector);
@@ -57,6 +58,34 @@
         }, params || {}));
       }
     } catch (error) {}
+  }
+
+  function getCartItemsForGA4(sourceItems) {
+    return (sourceItems || cart).map(function (item) {
+      return {
+        item_name: getDisplayName(item),
+        item_category: item.category,
+        item_variant: item.spec || '',
+        quantity: item.quantity
+      };
+    });
+  }
+
+  function getTotalQuantity() {
+    return cart.reduce(function (sum, item) {
+      return sum + item.quantity;
+    }, 0);
+  }
+
+  function trackBeginCheckout() {
+    if (hasTrackedBeginCheckout) return;
+    hasTrackedBeginCheckout = true;
+    track('begin_checkout', {
+      currency: 'TWD',
+      item_count: cart.length,
+      total_quantity: getTotalQuantity(),
+      items: getCartItemsForGA4()
+    });
   }
 
   function getCartLines() {
@@ -137,10 +166,15 @@
 
     saveCart();
     renderCart();
-    track('inquiry_cart_add', {
-      item_category: category,
-      item_name: getDisplayName(existing || cart[cart.length - 1]),
-      quantity: quantity
+    var addedItem = existing || cart[cart.length - 1];
+    track('add_to_cart', {
+      currency: 'TWD',
+      items: [{
+        item_name: getDisplayName(addedItem),
+        item_category: category,
+        item_variant: spec || '',
+        quantity: quantity
+      }]
     });
   }
 
@@ -156,9 +190,9 @@
     saveCart();
     renderCart();
     if (removed) {
-      track('inquiry_cart_remove', {
-        item_category: removed.category,
-        item_name: getDisplayName(removed)
+      track('remove_from_cart', {
+        currency: 'TWD',
+        items: getCartItemsForGA4([removed])
       });
     }
   }
@@ -195,11 +229,11 @@
     var summaryNode = document.getElementById('inquiryCartFullSummary');
     if (summaryNode) summaryNode.value = buildFullSummary();
 
+    trackBeginCheckout();
+
     track('inquiry_cart_submit_ready', {
       item_count: cart.length,
-      total_quantity: cart.reduce(function (sum, item) {
-        return sum + item.quantity;
-      }, 0)
+      total_quantity: getTotalQuantity()
     });
 
     return true;
@@ -223,10 +257,19 @@
     if (clearButton) clearButton.addEventListener('click', clearCart);
 
     var form = document.getElementById('rentalForm');
-    if (form) form.addEventListener('submit', prepareInquirySummary, true);
+    if (form) {
+      form.addEventListener('focusin', function (event) {
+        if (event.target && event.target.matches && event.target.matches('input, select, textarea')) {
+          trackBeginCheckout();
+        }
+      });
+      form.addEventListener('submit', prepareInquirySummary, true);
+    }
 
     renderCart();
   }
+
+  window.getZubidaRentalCartItemsForGA4 = getCartItemsForGA4;
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
