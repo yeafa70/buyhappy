@@ -2,9 +2,14 @@ var GAS_URL = 'https://script.google.com/macros/s/AKfycbw6sS6qFtJUgIzg0rs3vuSBv7
 var ZUBIDA_TRACKING_KEY = 'zubida_tracking_data';
 
 function trackEvent(eventName, eventParams) {
-  if (typeof gtag === 'function') {
-    gtag('event', eventName, eventParams || {});
-  }
+  try {
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', eventName, Object.assign({
+        page_path: location.pathname,
+        page_title: document.title
+      }, eventParams || {}));
+    }
+  } catch (error) {}
 }
 
 function getFieldValue(id) {
@@ -183,12 +188,42 @@ function initGaClickEvents() {
   var gaElements = document.querySelectorAll('[data-ga-event]');
   for (var i = 0; i < gaElements.length; i += 1) {
     gaElements[i].addEventListener('click', function () {
-      trackEvent(this.getAttribute('data-ga-event'), {
+      var eventName = this.getAttribute('data-ga-event');
+      var href = this.getAttribute('href') || '';
+      if (eventName === 'click_line' || eventName === 'click_phone' || href.indexOf('lin.ee') !== -1 || href.indexOf('tel:') === 0) return;
+      trackEvent(eventName, {
         event_label: this.getAttribute('data-ga-label') || this.textContent.replace(/^\s+|\s+$/g, ''),
         page_path: location.pathname
       });
     });
   }
+}
+
+function initContactClickTracking() {
+  document.addEventListener('click', function (event) {
+    var target = event.target;
+    if (!target || !target.closest) return;
+    var link = target.closest('a');
+    if (!link) return;
+
+    var href = link.getAttribute('href') || '';
+    var linkText = (link.textContent || '').replace(/^\s+|\s+$/g, '');
+
+    if (href.indexOf('lin.ee') !== -1) {
+      trackEvent('click_contact_line', {
+        link_url: href,
+        link_text: linkText
+      });
+      return;
+    }
+
+    if (href.indexOf('tel:') === 0) {
+      trackEvent('click_contact_phone', {
+        phone_number: href.replace('tel:', ''),
+        link_text: linkText
+      });
+    }
+  });
 }
 
 function submitRentalForm(event) {
@@ -333,15 +368,20 @@ function submitRentalForm(event) {
     finished = true;
     alert('表單已送出，租必達將儘快與您聯繫。若需求急迫，也歡迎直接來電：0920-633-116');
     trackEvent('form_submit_success', leadEventParams);
-    trackEvent('generate_lead', {
-      currency: 'TWD',
-      value: 1,
+    var leadParams = {
       lead_type: service,
+      inquiry_source: location.pathname,
       source_name: sourceName,
       source_path: sourcePath,
       page_name: pageName,
-      page_path: location.pathname
-    });
+      page_path: location.pathname,
+      page_title: document.title
+    };
+    if (typeof window.getZubidaRentalCartItemsForGA4 === 'function') {
+      var cartItems = window.getZubidaRentalCartItemsForGA4();
+      if (cartItems && cartItems.length) leadParams.items = cartItems;
+    }
+    trackEvent('generate_lead', leadParams);
     form.reset();
     if (postForm.parentNode) postForm.parentNode.removeChild(postForm);
     if (btn) {
@@ -384,6 +424,7 @@ function initRentalForm() {
 document.addEventListener('DOMContentLoaded', function () {
   initMarketingTracking();
   initMobileMenu();
+  initContactClickTracking();
   initGaClickEvents();
   initRentalForm();
 });
