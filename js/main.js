@@ -156,13 +156,16 @@ function initMobileMenu() {
   if (!btn || !menu) return;
 
   btn.setAttribute('type', 'button');
+  btn.setAttribute('aria-label', '開啟網站選單');
   btn.setAttribute('aria-controls', 'mobile-menu');
   btn.setAttribute('aria-expanded', 'false');
+  menu.setAttribute('aria-hidden', 'true');
 
   function closeMenu() {
     if (menu.className.indexOf('hidden') === -1) menu.className += ' hidden';
     menu.style.display = 'none';
     btn.setAttribute('aria-expanded', 'false');
+    menu.setAttribute('aria-hidden', 'true');
   }
 
   btn.addEventListener('click', function (event) {
@@ -173,8 +176,17 @@ function initMobileMenu() {
       menu.className = menu.className.replace(/\bhidden\b/g, '').replace(/\s+/g, ' ');
       menu.style.display = 'block';
       btn.setAttribute('aria-expanded', 'true');
+      menu.setAttribute('aria-hidden', 'false');
     } else {
       closeMenu();
+    }
+  });
+
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape' && menu.className.indexOf('hidden') === -1) {
+      closeMenu();
+      btn.focus();
     }
   });
 

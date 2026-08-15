@@ -124,7 +124,7 @@
         '<p class="font-bold text-gray-900">' + escapeHtml(getDisplayName(item)) + '</p>',
         '<p class="text-xs text-gray-500 mt-1">' + escapeHtml(item.category) + '｜數量 ' + item.quantity + ' ' + escapeHtml(item.unit) + '</p>',
         '</div>',
-        '<button type="button" class="text-red-500 text-xs font-bold hover:text-red-700" data-remove-cart="' + index + '">移除</button>',
+        '<button type="button" class="text-red-500 text-xs font-bold hover:text-red-700" aria-label="移除 ' + escapeHtml(getDisplayName(item)) + '" data-remove-cart="' + index + '">移除</button>',
         '</div>',
         '</div>'
       ].join('');

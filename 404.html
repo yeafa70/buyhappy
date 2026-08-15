@@ -1,12 +1,45 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, follow">
-  <meta http-equiv="refresh" content="0; url=index.html">
-  <title>頁面不存在｜租必達</title>
+  <meta name="theme-color" content="#1e3a8a">
+  <meta name="description" content="租必達頁面不存在，請回到首頁或查看水冷扇、活動帳篷、發電機設備租賃與詢價資訊。">
+  <title>找不到頁面｜租必達 ZUBIDA</title>
+  <style>
+    :root{color-scheme:light;font-family:system-ui,-apple-system,"Noto Sans TC","Microsoft JhengHei",sans-serif;color:#1f2937;background:#f9fafb}
+    *{box-sizing:border-box}
+    body{margin:0;min-height:100vh;background:#f9fafb;color:#1f2937;-webkit-font-smoothing:antialiased}
+    .error-page{min-height:100vh;display:grid;place-items:center;padding:4rem 1.5rem}
+    .error-card{width:100%;max-width:42rem;background:#fff;border:1px solid #e5e7eb;border-radius:1.5rem;box-shadow:0 20px 45px rgba(15,23,42,.12);padding:2rem;text-align:center}
+    .eyebrow{margin:0 0 .75rem;color:#1e3a8a;font-size:.875rem;font-weight:900;letter-spacing:.08em}
+    h1{margin:0 0 1rem;color:#111827;font-size:clamp(1.9rem,5vw,2.7rem);line-height:1.15}
+    .intro{margin:0 auto 2rem;max-width:34rem;color:#4b5563;line-height:1.8}
+    .error-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem;margin-bottom:2rem}
+    .error-nav a{display:inline-flex;align-items:center;justify-content:center;min-height:3rem;padding:.75rem 1rem;border-radius:.75rem;font-weight:800;text-decoration:none;transition:transform .18s ease,filter .18s ease}
+    .error-nav a:hover{transform:translateY(-1px);filter:brightness(.96)}
+    .error-nav a:focus-visible,.contact-link:focus-visible{outline:3px solid #f59e0b;outline-offset:3px}
+    .primary-link{background:#1e3a8a;color:#fff}.accent-link{background:#f59e0b;color:#fff}.secondary-link{border:1px solid #d1d5db;color:#374151;background:#fff}
+    .contact-note{margin:0;color:#6b7280;font-size:.9375rem}.contact-link{color:#1e3a8a;font-weight:800;text-decoration:underline}
+    @media (max-width:560px){.error-page{padding:2rem 1rem}.error-card{padding:1.5rem}.error-nav{grid-template-columns:1fr}}
+    @media (prefers-reduced-motion:reduce){.error-nav a{transition:none}}
+  </style>
 </head>
 <body>
-  <p>找不到這個頁面，正在返回 <a href="index.html">租必達首頁</a>。</p>
+  <main id="main-content" class="error-page">
+    <section class="error-card" aria-labelledby="error-title">
+      <p class="eyebrow">404｜PAGE NOT FOUND</p>
+      <h1 id="error-title">這個頁面目前不存在</h1>
+      <p class="intro">網址可能已經更新，或頁面連結輸入不完整。請從下列入口繼續瀏覽租必達的設備租賃資訊。</p>
+      <nav aria-label="錯誤頁主要導覽" class="error-nav">
+        <a href="index.html" class="primary-link">回到租必達首頁</a>
+        <a href="rent.html" class="accent-link">查看設備與詢價單</a>
+        <a href="cooler.html" class="secondary-link">水冷扇出租</a>
+        <a href="generator.html" class="secondary-link">發電機出租</a>
+      </nav>
+      <p class="contact-note">需要快速確認活動設備，也可以 <a class="contact-link" href="tel:0920633116">直接來電 0920-633-116</a>。</p>
+    </section>
+  </main>
 </body>
 </html>

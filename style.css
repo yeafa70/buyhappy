@@ -13,3 +13,8 @@ details[open] summary .faq-icon{transform:rotate(180deg)}
 @media (max-width:640px){.video-vertical{max-width:min(100%,280px);max-height:500px}.video-wide{max-width:100%}}
 .product-img,.hero-img,.scene-img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover;background:#e5e7eb}
 .h-64.overflow-hidden.relative{height:auto;aspect-ratio:1/1}
+/* Accessibility and interaction safeguards for SEO-friendly public pages. */
+.skip-link{position:absolute;left:1rem;top:-4rem;z-index:100;background:#1e3a8a;color:#fff;padding:.75rem 1rem;border-radius:.5rem;font-weight:700;transition:top .18s ease}
+.skip-link:focus{top:1rem}
+:focus-visible{outline:3px solid #f59e0b;outline-offset:3px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}.page-section,.faq-icon{animation:none!important;transition:none!important}}
