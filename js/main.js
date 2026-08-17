@@ -203,10 +203,20 @@ function initGaClickEvents() {
       var eventName = this.getAttribute('data-ga-event');
       var href = this.getAttribute('href') || '';
       if (eventName === 'click_line' || eventName === 'click_phone' || href.indexOf('lin.ee') !== -1 || href.indexOf('tel:') === 0) return;
-      trackEvent(eventName, {
+      var eventParams = {
         event_label: this.getAttribute('data-ga-label') || this.textContent.replace(/^\s+|\s+$/g, ''),
         page_path: location.pathname
-      });
+      };
+      var linkType = this.getAttribute('data-ga-link-type');
+      var contentType = this.getAttribute('data-ga-content-type');
+      var contentGroup = this.getAttribute('data-ga-content-group');
+      var platform = this.getAttribute('data-ga-platform');
+      if (href) eventParams.link_url = href;
+      if (linkType) eventParams.link_type = linkType;
+      if (contentType) eventParams.content_type = contentType;
+      if (contentGroup) eventParams.content_group = contentGroup;
+      if (platform) eventParams.platform = platform;
+      trackEvent(eventName, eventParams);
     });
   }
 }
